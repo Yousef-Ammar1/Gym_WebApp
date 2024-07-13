@@ -9,10 +9,16 @@ class ScheduledClass extends Model
 {
     use HasFactory;
 
+    protected $guarded = null ;
+
+    protected $casts = [
+        'date_time' => 'datetime',
+    ];
+
 
     public function intstrctor()
     {
-        return $this->belongsTo(User::class, 'intstrctor_id');
+        return $this->belongsTo(User::class, 'instructor_id');
     }
     public function classType()
     {
