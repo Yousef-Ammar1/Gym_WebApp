@@ -9,7 +9,7 @@ class ScheduledClass extends Model
 {
     use HasFactory;
 
-    protected $guarded = null ;
+    protected $guarded = null;
 
     protected $casts = [
         'date_time' => 'datetime',
@@ -23,5 +23,10 @@ class ScheduledClass extends Model
     public function classType()
     {
         return $this->belongsTo(ClassType::class);
+    }
+
+    public function members()
+    {
+        return $this->belongsToMany(User::class, 'bookings');
     }
 }
