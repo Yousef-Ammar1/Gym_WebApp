@@ -17,7 +17,7 @@ class BookingController extends Controller
         $scheduledClasses = ScheduledClass::upcoming()
         ->with('classType', 'instructor')
         ->NotBooked()
-        ->oldest()->get();
+        ->oldest('date_time')->get();
         return view('member.book')->with('scheduledClasses', $scheduledClasses);
     }
 
