@@ -13,7 +13,7 @@ class ScheduledClassContorller extends Controller
      */
     public function index()
     {
-        $scheduledClasses = auth()->user()->scheduledClasses()->where('date_time', '>', now())
+        $scheduledClasses = auth()->user()->scheduledClasses()->upcoming()
         ->oldest('date_time')->get();
         return view('instructor.upcoming')
         ->with('scheduledClasses', $scheduledClasses);
@@ -62,7 +62,7 @@ class ScheduledClassContorller extends Controller
         }
         $schedule->delete();
         return redirect()->route('schedule.index');
-        
+
                 // if (auth()->user()->id !== $schedule->instructor_id)
                 // {
                 //     abort(403);
