@@ -27,5 +27,12 @@ class AppServiceProvider extends ServiceProvider
             ? Response::allow()
             : Response::deny('You are not authorized to schedule a class.');
         });
+    {
+        Gate::define('book-class', function (User $user) {
+            return $user->role === 'member'
+            ? Response::allow()
+            : Response::deny('You are not authorized to schedule a class.');
+        });
     }
+}
 }
