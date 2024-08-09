@@ -63,8 +63,8 @@ class ScheduledClassContorller extends Controller
         }
         CLassCanceled::dispatch($schedule);
 
-        // $schedule->delete();
-        // $schedule->members()->detach();
+        $schedule->members()->detach();
+        $schedule->delete();
         return redirect()->route('schedule.index');
 
                 // if (auth()->user()->id !== $schedule->instructor_id)
