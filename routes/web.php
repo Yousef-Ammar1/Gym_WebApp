@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/sd', function () {
+    return view('welcome');
+});
 
 
 Route::resource('/instructor/schedule', ScheduledClassContorller::class)
